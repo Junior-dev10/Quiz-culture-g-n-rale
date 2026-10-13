@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Quiz Culture Générale</div>
+        <div class="liste">
+            <ul>
+                <li><a href="#" class="active">Tous</a></li>
+                <li><a id="btn-facile" href="#">Facile</a></li>
+                <li><a id="btn-moyen" href="#">Moyen</a></li>
+                <li><a id="btn-difficile" href="#">Difficile</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div class="entet">
+            <h1>Quiz Culture Générale</h1>
+        </div>
+
+    </header>
+    <main>
+        <div class="quiz">
+            <div id="timer"></div>
+            <div id="progress-text"></div>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div class="question">
+                <h3 class="afficher"></h3>
+            </div>
+            <div class="options">
+            </div>
+            <div class="suite">
+                <button id="rejouer"> Rejouer</button>
+                <button id="commencer"> Commencer le Quiz</button>
+                <button id="suivant">Question suivante ➔</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2026 Quiz Culture Générale</p>
+    </footer>
+    <script src="question.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

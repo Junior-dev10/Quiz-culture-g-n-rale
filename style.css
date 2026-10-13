@@ -1,0 +1,307 @@
+/* Définition des variables CSS pour une meilleure maintenabilité */
+:root {
+  --primary-blue: hsl(
+    200,
+    80%,
+    40%
+  ); /* Un bleu vif pour les éléments principaux */
+  --dark-blue: hsl(
+    220,
+    40%,
+    20%
+  ); /* Un bleu foncé pour le fond du quiz et le footer */
+  --light-bg: hsl(40, 60%, 95%); /* Un fond clair et chaud pour les questions */
+  --text-dark: hsl(220, 20%, 20%); /* Couleur de texte foncée */
+  --text-light: hsl(0, 0%, 100%); /* Couleur de texte claire (blanc) */
+  --success-green: hsl(
+    120,
+    60%,
+    40%
+  ); /* Vert pour les actions positives (Suivant) */
+  --start-purple: hsl(
+    260,
+    60%,
+    50%
+  ); /* Nouvelle couleur pour le bouton Commencer */
+  --warning-red: hsl(
+    0,
+    60%,
+    50%
+  ); /* Rouge pour les actions d'avertissement (Rejouer) */
+  --shadow-color: rgba(0, 0, 0, 0.2); /* Couleur d'ombre standard */
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 20px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur/hauteur */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+  color: var(--text-dark); /* Couleur de texte par défaut */
+  line-height: 1.6; /* Améliore la lisibilité du texte */
+  padding-bottom: 70px; /* Pour laisser de l'espace au footer fixe */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0 20px;
+  min-height: 60px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.liste ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.liste ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.liste ul li a:hover {
+  background-color: var(--text-light);
+  color: var(--primary-blue);
+}
+.liste ul li a.active {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: var(--text-light);
+}
+
+.entet {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.quiz {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 300px;
+  padding: 40px;
+  width: 90%; /* Plus réactif sur les petits écrans */
+  max-width: 800px; /* Limite la largeur sur les grands écrans */
+  margin: 0 auto;
+  border-radius: var(--border-radius-lg); /* Utilisation de la variable */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Ombre plus prononcée */
+}
+
+/* Animation de transition pour la question */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#timer {
+  text-align: right;
+  color: var(--text-light);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+#progress-text {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.progress-container {
+  width: 95%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-sm);
+  margin: 0 auto 20px auto;
+  overflow: hidden;
+}
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--success-green);
+  transition: width 0.4s ease;
+}
+
+.question {
+  text-align: center;
+  padding: 20px 10px;
+  width: 95%; /* Plus réactif */
+  max-width: 600px; /* Limite la largeur */
+  margin: 0 auto;
+  border-radius: var(--border-radius-md); /* Utilisation de la variable */
+  border: none;
+  background-color: var(--light-bg); /* Utilisation de la variable */
+  color: var(--text-dark);
+  font-weight: 600;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.options {
+  display: flex; /* Active le mode Flexbox */
+  justify-content: center; /* Centre les boutons horizontalement */
+  gap: 15px; /* Ajoute un espace entre les boutons */
+  margin-top: 20px; /* Ajoute un espace avec la question au-dessus */
+  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
+}
+
+.options button {
+  /* margin-top: 30px; -- Supprimé car le gap et margin-top sur .options suffisent */
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius-sm); /* Utilisation de la variable */
+  background-color: var(
+    --primary-blue
+  ); /* Couleur de fond pour les boutons d'option */
+  color: var(--text-light); /* Couleur du texte */
+  font-size: 16px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease; /* Transitions pour les effets de survol */
+}
+.options button:hover {
+  background-color: hsl(200, 80%, 50%); /* Légèrement plus clair au survol */
+  transform: translateY(-2px); /* Effet de léger soulèvement */
+}
+.options button:active {
+  transform: translateY(1px); /* Effet de clic */
+}
+
+.options button.correct {
+  background-color: var(--success-green) !important;
+  color: var(--text-light);
+}
+
+.options button.incorrect {
+  background-color: var(--warning-red) !important;
+  color: var(--text-light);
+}
+
+.suite {
+  display: flex;
+  margin-top: 60px;
+  justify-content: space-between;
+}
+.suite button {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius-sm); /* Utilisation de la variable */
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-light); /* Texte blanc par défaut */
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+#commencer {
+  background-color: var(--start-purple);
+}
+#commencer:hover {
+  background-color: hsl(260, 60%, 60%);
+  transform: translateY(-2px);
+}
+#commencer:active {
+  transform: translateY(1px);
+}
+
+#rejouer {
+  background-color: var(--warning-red); /* Couleur spécifique pour "Rejouer" */
+}
+#rejouer:hover {
+  background-color: hsl(0, 70%, 60%); /* Plus clair au survol */
+  transform: translateY(-2px);
+}
+
+#suivant {
+  background-color: var(
+    --success-green
+  ); /* Couleur spécifique pour "Suivant" */
+  display: none; /* Masqué par défaut */
+}
+#suivant:hover {
+  background-color: hsl(120, 70%, 50%); /* Plus clair au survol */
+  transform: translateY(-2px);
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: var(--dark-blue); /* Utilisation de la variable */
+  color: var(--text-light); /* Utilisation de la variable */
+  padding: 15px 10px; /* Plus de padding pour un meilleur espacement */
+  text-align: center;
+  box-shadow: 0 -2px 5px var(--shadow-color); /* Ombre au-dessus du footer */
+  z-index: 1000; /* Assure que le footer reste au-dessus des autres éléments */
+}
+
+/* Media Queries pour la Responsivité */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .quiz {
+    padding: 25px 15px;
+    width: 95%;
+  }
+
+  .suite {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .suite button {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .entet h1 {
+    font-size: 1.4rem;
+  }
+
+  .question h3 {
+    font-size: 1.1rem;
+  }
+
+  #timer {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
